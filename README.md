@@ -36,3 +36,6 @@ Atualização: corrigida a regra de atestado de acompanhamento para 2 atestados 
 
 
 Atualização: adicionados elementos visuais de segurança no fundo do layout (ícones sutis decorativos).
+
+
+Atualização: ajustado o layout mobile para os ícones decorativos não ficarem sobre o texto principal.

@@ -744,3 +744,80 @@ footer{
   .icon-8{top:28%;left:50%}
 }
 
+
+
+/* Ajuste premium mobile: evita ícones sobrepondo texto */
+.hero-card{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:14px;
+  align-items:stretch;
+}
+.hero-content{
+  max-width:none;
+}
+.hero-bubbles{
+  position:relative;
+  right:auto;
+  bottom:auto;
+  align-self:end;
+  justify-content:flex-end;
+  flex-direction:column;
+}
+.hero-bubbles .bubble:not(.big){
+  width:48px;
+  height:48px;
+  font-size:22px;
+}
+.hero-bubbles .bubble.big{
+  width:62px;
+  height:62px;
+  font-size:30px;
+}
+@media(max-width:560px){
+  .hero-card{
+    min-height:auto;
+    display:block;
+    padding:22px 18px 88px;
+  }
+  .hero-card p{
+    max-width:100%;
+    font-size:14px;
+    line-height:1.55;
+    position:relative;
+    z-index:4;
+  }
+  .hero-bubbles{
+    position:absolute;
+    right:18px;
+    bottom:18px;
+    display:flex;
+    flex-direction:row;
+    gap:8px;
+    opacity:.85;
+  }
+  .hero-bubbles .bubble{
+    width:46px;
+    height:46px;
+    border-radius:16px;
+    font-size:22px;
+  }
+  .hero-bubbles .bubble.big{
+    width:54px;
+    height:54px;
+    border-radius:18px;
+    font-size:27px;
+  }
+}
+@media(max-width:390px){
+  .hero-card{
+    padding-bottom:78px;
+  }
+  .hero-bubbles{
+    right:14px;
+    bottom:14px;
+    transform:scale(.88);
+    transform-origin:right bottom;
+  }
+}
+
