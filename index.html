@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desafio SST Quiz</title>
+  <meta name="description" content="Quiz interativo de SST para DDS e treinamentos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orb orb1"></div>
+  <div class="bg-orb orb2"></div>
+  <div class="bg-orb orb3"></div>
+
+  <main class="app">
+    <section id="startScreen" class="panel start-panel">
+      <div class="hero-top">
+        <div class="brand-chip">🎯 QUIZ SST</div>
+        <div class="hero-mini-stats">
+          <div><span>DDS</span><small>treinamento</small></div>
+          <div><span>🔀</span><small>aleatório</small></div>
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <h1>Desafio <span>SST</span></h1>
+        <p>Escolha o tema, defina a quantidade e teste seus conhecimentos em SST, DDS e campanhas internas.</p>
+      </div>
+
+      <div class="input-wrap">
+        <label for="playerName">Nome do participante</label>
+        <input id="playerName" type="text" maxlength="24" placeholder="Ex: Willian" />
+      </div>
+
+      <div class="section-head">
+        <h2>Escolha o tema</h2>
+        <span class="hint">toque em um card</span>
+      </div>
+      <div class="category-grid" id="categoryGrid"></div>
+
+      <div class="section-head amount-head">
+        <h2>Quantidade de perguntas</h2>
+      </div>
+      <div class="amount-grid" id="amountGrid">
+        <button class="amount-pill" data-amount="10">10</button>
+        <button class="amount-pill active" data-amount="20">20</button>
+        <button class="amount-pill" data-amount="30">30</button>
+        <button class="amount-pill" data-amount="all">Todas</button>
+      </div>
+
+      <div class="summary-strip">
+        <div class="summary-box">
+          <small>Tema selecionado</small>
+          <strong id="selectedCategoryLabel">NR 32</strong>
+        </div>
+        <div class="summary-box">
+          <small>Recorde</small>
+          <strong id="bestScore">0</strong>
+        </div>
+      </div>
+
+      <button id="startBtn" class="primary-btn">Começar o quiz</button>
+    </section>
+
+    <section id="gameScreen" class="panel game-panel hidden">
+      <div class="game-top">
+        <div class="player-card small">
+          <small>Participante</small>
+          <strong id="currentPlayer">Você</strong>
+        </div>
+        <div class="player-card small accent">
+          <small>Pontos</small>
+          <strong id="score">0</strong>
+        </div>
+        <div class="timer-card">
+          <div class="timer-ring" id="timerRing">
+            <div>
+              <small>tempo</small>
+              <strong id="timer">25</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz-progress-wrap">
+        <div class="quiz-progress-meta">
+          <span id="questionCount">Pergunta 1/10</span>
+          <span id="questionTag">Tema</span>
+        </div>
+        <div class="progress-bar"><div id="progressBar"></div></div>
+      </div>
+
+      <article class="question-shell">
+        <h2 id="questionText">Pergunta aparece aqui</h2>
+        <div id="answers" class="answers"></div>
+      </article>
+
+      <div id="feedback" class="feedback"></div>
+      <div id="explanation" class="explanation hidden"></div>
+      <button id="nextBtn" class="secondary-btn hidden">Próxima pergunta</button>
+    </section>
+
+    <section id="resultScreen" class="panel result-panel hidden">
+      <div class="result-icon">🏆</div>
+      <p class="result-kicker">resultado final</p>
+      <h2 id="resultTitle">Fim do quiz!</h2>
+      <p id="resultText"></p>
+
+      <div class="result-grid">
+        <div class="result-box"><small>Acertos</small><strong id="correctTotal">0</strong></div>
+        <div class="result-box"><small>Erros</small><strong id="wrongTotal">0</strong></div>
+        <div class="result-box"><small>Recorde</small><strong id="finalBest">0</strong></div>
+      </div>
+
+      <p id="resultNote" class="result-note"></p>
+      <button id="restartBtn" class="primary-btn">Jogar novamente</button>
+      <button id="changeCategoryBtn" class="ghost-btn">Trocar tema</button>
+    </section>
+  </main>
+
+  <footer>Conteúdo educativo. Confira sempre a versão oficial dos procedimentos da sua unidade.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
