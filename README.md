@@ -21,3 +21,8 @@ Visual atualizado com layout mais estilo quiz, cards de tema, seleção por bot�
 
 
 Atualização: removidas as quantidades dos cards de tema e implementado sorteio balanceado por frequência usando localStorage.
+
+- Atualização: as alternativas agora também são embaralhadas em cada rodada.
+
+
+Atualização: as alternativas das perguntas agora são embaralhadas a cada rodada, então a resposta correta não fica sempre na letra A.

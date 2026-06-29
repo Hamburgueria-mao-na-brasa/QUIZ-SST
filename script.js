@@ -65,6 +65,18 @@ function shuffle(arr) {
   return [...arr].sort(() => Math.random() - 0.5);
 }
 
+function prepareQuestionForRound(question) {
+  const options = shuffle(
+    question.a.map((text, originalIndex) => ({ text, originalIndex }))
+  );
+
+  return {
+    ...question,
+    options,
+    correctIndex: options.findIndex(option => option.originalIndex === question.correct)
+  };
+}
+
 function questionId(question) {
   return `${question.tag}::${question.q}`;
 }
@@ -116,7 +128,8 @@ function totalQuestionsForRun() {
 }
 
 function startGame() {
-  currentQuestions = pickBalancedQuestions(questions[selectedCategory], totalQuestionsForRun());
+  currentQuestions = pickBalancedQuestions(questions[selectedCategory], totalQuestionsForRun())
+    .map(prepareQuestionForRound);
   index = 0; score = 0; correct = 0; wrong = 0;
   els.currentPlayer.textContent = els.playerName.value.trim() || 'Participante';
   els.startScreen.classList.add('hidden');
@@ -140,10 +153,10 @@ function loadQuestion() {
   els.progressBar.style.width = `${(index / currentQuestions.length) * 100}%`;
   els.score.textContent = score;
 
-  item.a.forEach((answer, i) => {
+  item.options.forEach((option, i) => {
     const btn = document.createElement('button');
     btn.className = 'answer';
-    btn.innerHTML = `<span class="answer-badge">${letters[i]}</span><span class="answer-text">${answer}</span>`;
+    btn.innerHTML = `<span class="answer-badge">${letters[i]}</span><span class="answer-text">${option.text}</span>`;
     btn.onclick = () => chooseAnswer(i);
     els.answers.appendChild(btn);
   });
@@ -178,10 +191,10 @@ function chooseAnswer(answerIndex) {
 
   buttons.forEach((btn, i) => {
     btn.disabled = true;
-    if (i === item.correct) btn.classList.add('correct');
+    if (i === item.correctIndex) btn.classList.add('correct');
   });
 
-  if (answerIndex === item.correct) {
+  if (answerIndex === item.correctIndex) {
     const points = 100 + timer * 2;
     score += points;
     correct++;
