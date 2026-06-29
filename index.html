@@ -3,120 +3,203 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Desafio SST Quiz</title>
-  <meta name="description" content="Quiz interativo de SST para DDS e treinamentos." />
+  <title>Desafio SST Premium</title>
+  <meta name="description" content="Quiz premium de SST para DDS, integração e campanhas internas." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg-orb orb1"></div>
-  <div class="bg-orb orb2"></div>
-  <div class="bg-orb orb3"></div>
+  <div class="noise"></div>
+  <div class="glow glow-one"></div>
+  <div class="glow glow-two"></div>
+  <div class="glow glow-three"></div>
+  <div class="safety-bg" aria-hidden="true">
+    <span class="safety-icon icon-1">⚠️</span>
+    <span class="safety-icon icon-2">🦺</span>
+    <span class="safety-icon icon-3">⛑️</span>
+    <span class="safety-icon icon-4">🧤</span>
+    <span class="safety-icon icon-5">🛡️</span>
+    <span class="safety-icon icon-6">🚨</span>
+    <span class="safety-icon icon-7">📋</span>
+    <span class="safety-icon icon-8">🩺</span>
+  </div>
 
   <main class="app">
-    <section id="startScreen" class="panel start-panel">
-      <div class="hero-top">
-        <div class="brand-chip">🎯 QUIZ SST</div>
-        <div class="hero-mini-stats">
-          <div><span>DDS</span><small>treinamento</small></div>
-          <div><span>🔀</span><small>aleatório</small></div>
+    <section id="startScreen" class="screen start-screen">
+      <div class="top-nav">
+        <div class="logo-mark">
+          <span>✓</span>
+        </div>
+        <div>
+          <strong>Desafio SST</strong>
+          <small>Quiz interativo</small>
+        </div>
+        <div class="status-pill">Premium</div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-content">
+          <div class="eyebrow">DDS • TREINAMENTO • CAMPANHAS</div>
+          <h1>Quiz SST<br><span>de alto impacto</span></h1>
+          <p>Escolha o tema, identifique o participante e rode uma dinâmica moderna com perguntas aleatórias e alternativas embaralhadas.</p>
+        </div>
+
+        <div class="hero-bubbles">
+          <div class="bubble big">🎯</div>
+          <div class="bubble">🦺</div>
+          <div class="bubble">📄</div>
         </div>
       </div>
 
-      <div class="hero-copy">
-        <h1>Desafio <span>SST</span></h1>
-        <p>Escolha o tema, defina a quantidade e teste seus conhecimentos em SST, DDS e campanhas internas.</p>
+      <div class="form-card">
+        <div class="section-title">
+          <h2>Identificação</h2>
+          <small>dados do participante</small>
+        </div>
+
+        <div class="form-grid">
+          <div class="input-wrap">
+            <label for="playerName">Nome</label>
+            <input id="playerName" type="text" maxlength="24" placeholder="Digite o nome" />
+          </div>
+
+          <div class="input-wrap">
+            <label for="playerSector">Setor</label>
+            <input id="playerSector" type="text" maxlength="35" placeholder="Ex: UTI, CME, Recepção" />
+          </div>
+
+          <div class="input-wrap full">
+            <label for="playerShift">Turno</label>
+            <select id="playerShift">
+              <option value="">Selecione o turno</option>
+              <option value="Ímpar Diurno">Ímpar Diurno</option>
+              <option value="Ímpar Noturno">Ímpar Noturno</option>
+              <option value="Par Diurno">Par Diurno</option>
+              <option value="Par Noturno">Par Noturno</option>
+            </select>
+          </div>
+        </div>
       </div>
 
-      <div class="input-wrap">
-        <label for="playerName">Nome do participante</label>
-        <input id="playerName" type="text" maxlength="24" placeholder="Ex: Willian" />
-      </div>
-
-      <div class="section-head">
+      <div class="section-title topics-title">
         <h2>Escolha o tema</h2>
-        <span class="hint">toque em um card</span>
+        <small>cards clicáveis</small>
       </div>
+
       <div class="category-grid" id="categoryGrid"></div>
 
-      <div class="section-head amount-head">
-        <h2>Quantidade de perguntas</h2>
-      </div>
-      <div class="amount-grid" id="amountGrid">
-        <button class="amount-pill" data-amount="10">10</button>
-        <button class="amount-pill active" data-amount="20">20</button>
-        <button class="amount-pill" data-amount="30">30</button>
-        <button class="amount-pill" data-amount="all">Todas</button>
+      <div class="config-card">
+        <div>
+          <small>Quantidade</small>
+          <strong>perguntas por rodada</strong>
+        </div>
+        <div class="amount-grid" id="amountGrid">
+          <button class="amount-pill" data-amount="10">10</button>
+          <button class="amount-pill active" data-amount="20">20</button>
+          <button class="amount-pill" data-amount="30">30</button>
+          <button class="amount-pill" data-amount="all">Todas</button>
+        </div>
       </div>
 
-      <div class="summary-strip">
-        <div class="summary-box">
+      <div class="start-summary">
+        <div>
           <small>Tema selecionado</small>
           <strong id="selectedCategoryLabel">NR 32</strong>
         </div>
-        <div class="summary-box">
+        <div>
           <small>Recorde</small>
           <strong id="bestScore">0</strong>
         </div>
       </div>
 
-      <button id="startBtn" class="primary-btn">Começar o quiz</button>
+      <button id="startBtn" class="primary-btn">
+        <span>Começar quiz</span>
+        <strong>→</strong>
+      </button>
     </section>
 
-    <section id="gameScreen" class="panel game-panel hidden">
-      <div class="game-top">
-        <div class="player-card small">
-          <small>Participante</small>
-          <strong id="currentPlayer">Você</strong>
+    <section id="gameScreen" class="screen game-screen hidden">
+      <div class="game-header">
+        <div class="participant-box">
+          <small>Nome</small>
+          <strong id="currentPlayer">Participante</strong>
         </div>
-        <div class="player-card small accent">
-          <small>Pontos</small>
+        <div class="participant-box">
+          <small>Setor</small>
+          <strong id="currentSector">-</strong>
+        </div>
+        <div class="participant-box">
+          <small>Turno</small>
+          <strong id="currentShift">-</strong>
+        </div>
+      </div>
+
+      <div class="score-row">
+        <div class="score-card">
+          <small>Pontuação</small>
           <strong id="score">0</strong>
         </div>
-        <div class="timer-card">
-          <div class="timer-ring" id="timerRing">
-            <div>
-              <small>tempo</small>
-              <strong id="timer">25</strong>
-            </div>
+        <div class="timer-ring" id="timerRing">
+          <div>
+            <small>tempo</small>
+            <strong id="timer">25</strong>
           </div>
         </div>
       </div>
 
-      <div class="quiz-progress-wrap">
-        <div class="quiz-progress-meta">
+      <div class="progress-area">
+        <div class="progress-meta">
           <span id="questionCount">Pergunta 1/10</span>
           <span id="questionTag">Tema</span>
         </div>
         <div class="progress-bar"><div id="progressBar"></div></div>
       </div>
 
-      <article class="question-shell">
+      <article class="question-card">
         <h2 id="questionText">Pergunta aparece aqui</h2>
         <div id="answers" class="answers"></div>
       </article>
 
       <div id="feedback" class="feedback"></div>
       <div id="explanation" class="explanation hidden"></div>
-      <button id="nextBtn" class="secondary-btn hidden">Próxima pergunta</button>
+
+      <button id="nextBtn" class="secondary-btn hidden">
+        <span>Próxima pergunta</span>
+        <strong>→</strong>
+      </button>
     </section>
 
-    <section id="resultScreen" class="panel result-panel hidden">
-      <div class="result-icon">🏆</div>
+    <section id="resultScreen" class="screen result-screen hidden">
+      <div class="result-medal">🏆</div>
       <p class="result-kicker">resultado final</p>
       <h2 id="resultTitle">Fim do quiz!</h2>
       <p id="resultText"></p>
 
+      <div class="participant-summary" id="participantSummary"></div>
+
       <div class="result-grid">
-        <div class="result-box"><small>Acertos</small><strong id="correctTotal">0</strong></div>
-        <div class="result-box"><small>Erros</small><strong id="wrongTotal">0</strong></div>
-        <div class="result-box"><small>Recorde</small><strong id="finalBest">0</strong></div>
+        <div class="result-box">
+          <small>Acertos</small>
+          <strong id="correctTotal">0</strong>
+        </div>
+        <div class="result-box">
+          <small>Erros</small>
+          <strong id="wrongTotal">0</strong>
+        </div>
+        <div class="result-box">
+          <small>Recorde</small>
+          <strong id="finalBest">0</strong>
+        </div>
       </div>
 
       <p id="resultNote" class="result-note"></p>
-      <button id="restartBtn" class="primary-btn">Jogar novamente</button>
+
+      <button id="restartBtn" class="primary-btn">
+        <span>Jogar novamente</span>
+        <strong>↻</strong>
+      </button>
       <button id="changeCategoryBtn" class="ghost-btn">Trocar tema</button>
     </section>
   </main>

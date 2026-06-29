@@ -1,31 +1,38 @@
-# Desafio SST Completo
+# Desafio SST Premium
 
-Categorias:
-- NR 32: 15 perguntas
-- NR 06: 10 perguntas
-- Ginástica Laboral / NR 17: 10 perguntas
-- Atestados - DIS 001: 31 perguntas
-- Acidentes - DIS 002: 6 perguntas
-- Anti-tabagismo - DIS 062: 6 perguntas
-- Prevenção de Quedas: 6 perguntas
-- Junho Vermelho: 5 perguntas
-- Assédio e Violência: 4 perguntas
-- Misto Geral: 93 perguntas
+Versão premium do quiz de SST.
 
-Inclui DIS 001 com base nas fotos enviadas: prazo de 2 dias úteis pelo Meu RH, internação, INSS, retorno ao trabalho, comparecimento, acompanhamento, doação de sangue e licença-maternidade.
+## Recursos
 
-Abra `index.html` no navegador ou publique no GitHub Pages.
+- Layout premium responsivo para celular
+- Campos: nome, setor e turno
+- Temas em cards
+- Quantidade de perguntas por rodada
+- Perguntas aleatórias com controle de frequência
+- Alternativas embaralhadas
+- Timer circular
+- Resultado com dados do participante
+- Recorde salvo no navegador
+
+## Temas
+
+- NR 32
+- NR 06
+- Ginástica Laboral / NR 17
+- Atestados - DIS 001
+- Acidentes - DIS 002
+- Anti-tabagismo - DIS 062
+- Prevenção de Quedas
+- Junho Vermelho
+- Assédio e Violência
+- Misto Geral
+
+## Como usar
+
+Abra o arquivo `index.html` no navegador ou publique os arquivos no GitHub Pages.
 
 
-Visual atualizado com layout mais estilo quiz, cards de tema, seleção por botões e timer circular.
+Atualização: corrigida a regra de atestado de acompanhamento para 2 atestados a cada 6 meses.
 
 
-Atualização: removidas as quantidades dos cards de tema e implementado sorteio balanceado por frequência usando localStorage.
-
-- Atualização: as alternativas agora também são embaralhadas em cada rodada.
-
-
-Atualização: as alternativas das perguntas agora são embaralhadas a cada rodada, então a resposta correta não fica sempre na letra A.
-
-
-Atualização: corrigida a regra de atestado de acompanhamento para 1 atestado a cada trimestre.
+Atualização: adicionados elementos visuais de segurança no fundo do layout (ícones sutis decorativos).
