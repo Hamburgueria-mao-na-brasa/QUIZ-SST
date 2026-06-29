@@ -26,3 +26,6 @@ Atualização: removidas as quantidades dos cards de tema e implementado sorteio
 
 
 Atualização: as alternativas das perguntas agora são embaralhadas a cada rodada, então a resposta correta não fica sempre na letra A.
+
+
+Atualização: corrigida a regra de atestado de acompanhamento para 1 atestado a cada trimestre.
